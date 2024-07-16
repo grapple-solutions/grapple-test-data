@@ -105,7 +105,7 @@ CREATE TABLE `personalinformation` (
   `iban` varchar(100) DEFAULT NULL,
   `ibanVerified` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -114,6 +114,7 @@ CREATE TABLE `personalinformation` (
 
 LOCK TABLES `personalinformation` WRITE;
 /*!40000 ALTER TABLE `personalinformation` DISABLE KEYS */;
+INSERT INTO `personalinformation` VALUES (47,'Patrick Riegler','{\"zip\": \"6340\", \"city\": \"Baar\", \"street\": \"Oberneuhofstrasse 5\"}',NULL,NULL,'patrick.riegler@grapple-solutions.com',NULL,NULL,'CH980021421412133860R','1');
 /*!40000 ALTER TABLE `personalinformation` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -139,7 +140,7 @@ CREATE TABLE `purchasepaybacks` (
   `rejectionReason` varchar(10000) DEFAULT NULL,
   `questions` varchar(10000) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -148,6 +149,7 @@ CREATE TABLE `purchasepaybacks` (
 
 LOCK TABLES `purchasepaybacks` WRITE;
 /*!40000 ALTER TABLE `purchasepaybacks` DISABLE KEYS */;
+INSERT INTO `purchasepaybacks` VALUES (1,'2024-07-16 09:15:08',47,NULL,NULL,1,1,'VERIFICATION','cashback-full',NULL,NULL,NULL,'{\"Wie sind Sie auf die Cashback-Aktion aufmerksam geworden?\":\"Direkte Empfehlung durch die Mitarbeiter*innen im Mercedes-Benz Autohaus\",\"Kaufen Sie Ihre Reifen und Kompletträder regelmäßig im Mercedes-Benz Autohaus?\":\"Nein, nur ab und zu\",\"Hätten Sie die Winterkompletträder auch ohne die Cashback-Aktion gekauft?\":\"keine Angabe\",\"Lassen Sie Ihre Kompletträder regelmäßig im MB-Autohaus einlagern?\":\"Nein, nur ab und zu\",\"Wie finden Sie die Cashback-Aktion?\":\"Die Aktion ist ganz OK\",\"Wie bewerten Sie den Cashback-Beantragungsprozess?\":\"Übersichtlich und einfach verständlich\"}');
 /*!40000 ALTER TABLE `purchasepaybacks` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -181,7 +183,7 @@ CREATE TABLE `purchasereceipts` (
   `switchIdentified` varchar(1000) DEFAULT NULL,
   `switchOverride` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -190,6 +192,7 @@ CREATE TABLE `purchasereceipts` (
 
 LOCK TABLES `purchasereceipts` WRITE;
 /*!40000 ALTER TABLE `purchasereceipts` DISABLE KEYS */;
+INSERT INTO `purchasereceipts` VALUES (1,'{\"singleFiles\":[\"https://mbd-files-2023-nop.s3.eu-central-1.amazonaws.com/1/001_positive_e481f30f-485a-4fff-b27f-d44352d610b2_IMG_20221118_0002.pdf\"],\"JSONResponse\":\"https://mbd-files-2023-nop.s3.eu-central-1.amazonaws.com/1/parsed_document.json\",\"merged\":\"https://mbd-files-2023-nop.s3.eu-central-1.amazonaws.com/1/merged.pdf\"}','{\"vin\": {\"type\": \"string\", \"value\": \"WIN2477861J3823394\", \"confidenceSignal\": \"confident_answer\"}, \"MQ440\": {\"columns\": [{\"id\": \"lines including MQ440\", \"values\": [{\"type\": \"string\", \"value\": \"MQ44030151072A        K2156517HA7X45            2,00 Al       307, 46  SP    614,92 S\"}, {\"type\": \"string\", \"value\": \"MQ44030151073A        K2156517HA7X45            2,00 Al      307, 46  SP    614,92 S\"}]}]}, \"montage\": {\"type\": \"string\", \"value\": \"KD-WUNSCH RADER INKL: MONTAGE LAUT                  A1                         S\\nKD-WUNSCH WINTERREIFEN MONTIEREN                   A2                         S\", \"confidenceSignal\": \"confident_answer\"}, \"vehicle\": {\"type\": \"string\", \"value\": \"GLA 250 e\", \"confidenceSignal\": \"confident_answer\"}, \"einlagerung\": {\"type\": \"string\", \"value\": \"EINL-FREMD SOMMERRADER EINLAGERN\\nSOMMERREIFEN EINLAGERN\", \"confidenceSignal\": \"confident_answer\"}, \"invoiceDate\": {\"type\": \"string\", \"value\": \"14.11.2022\", \"confidenceSignal\": \"confident_answer\"}, \"Name of Buyer\": {\"type\": \"name\", \"value\": [\"Richard Kruse\"], \"confidenceSignal\": \"confident_answer\"}, \"dealershipInfo\": {\"type\": \"string\", \"value\": \"Egon Senger GmbH | KorbweidenstraBe 22 | 26605 Aurich\", \"confidenceSignal\": \"confident_answer\"}, \"Address of buyer\": {\"type\": \"address\", \"value\": \"KorbweidenstraBe 22, 26605 Aurich\", \"confidenceSignal\": \"incorrect_answer\"}, \"Name Of Dealership\": {\"type\": \"name\", \"value\": [\"Egon Senger GmbH\"], \"confidenceSignal\": \"confident_answer\"}, \"Address of Dealership\": {\"type\": \"address\", \"value\": \"Egon Senger GmbH | KorbweidenstraBe 22 | 26605 Aurich\", \"confidenceSignal\": \"confident_answer\"}, \"Quantity of items with MQ440 in their name\": {\"type\": \"number\", \"value\": 4, \"source\": \"4.00\", \"confidenceSignal\": \"incorrect_answer\"}}','[11]','4','[\"MQ44030151072A        K2156517HA7X45            2,00 Al       307, 46  SP    614,92 S\",\"MQ44030151073A        K2156517HA7X45            2,00 Al      307, 46  SP    614,92 S\"]',NULL,'2022-11-14 00:00:00','14.11.2022',NULL,676,'Egon Senger GmbH',NULL,'GLA 250 e','W1N2477861J382339','EINL-FREMD SOMMERRADER EINLAGERN\nSOMMERREIFEN EINLAGERN','EINL-FREMD SOMMERRADER EINLAGERN\nSOMMERREIFEN EINLAGERN','0','KD-WUNSCH RADER INKL: MONTAGE LAUT                  A1                         S\nKD-WUNSCH WINTERREIFEN MONTIEREN                   A2                         S','KD-WUNSCH RADER INKL: MONTAGE LAUT                  A1                         S\nKD-WUNSCH WINTERREIFEN MONTIEREN                   A2                         S','0');
 /*!40000 ALTER TABLE `purchasereceipts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -211,4 +214,4 @@ SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-07-16 10:47:48
+-- Dump completed on 2024-07-16 11:18:24
