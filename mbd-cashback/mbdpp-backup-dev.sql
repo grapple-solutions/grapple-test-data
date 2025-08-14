@@ -136,7 +136,7 @@ CREATE TABLE `purchasepaybacks` (
   `status` varchar(45) DEFAULT NULL COMMENT 'One of:\n- NULL\n- PRE-APPROVED\n- VERIFICATION\n- APPROVED\n- PRE-PAYMENT\n- PAID\n- REJECTED\n- INCOMPLETE',
   `cashbackType` varchar(45) NOT NULL DEFAULT 'cashback-basic',
   `paidDate` datetime DEFAULT NULL,
-  `paidByMBDDate` datetime DEFAULT NULL,
+  `approvedDate` datetime DEFAULT NULL,
   `rejectionReason` varchar(10000) DEFAULT NULL,
   `questions` varchar(10000) DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -195,6 +195,38 @@ LOCK TABLES `purchasereceipts` WRITE;
 INSERT INTO `purchasereceipts` VALUES (1,'{\"singleFiles\":[\"https://mbd-files-2023-nop.s3.eu-central-1.amazonaws.com/1/001_positive_e481f30f-485a-4fff-b27f-d44352d610b2_IMG_20221118_0002.pdf\"],\"JSONResponse\":\"https://mbd-files-2023-nop.s3.eu-central-1.amazonaws.com/1/parsed_document.json\",\"merged\":\"https://mbd-files-2023-nop.s3.eu-central-1.amazonaws.com/1/merged.pdf\"}','{\"vin\": {\"type\": \"string\", \"value\": \"WIN2477861J3823394\", \"confidenceSignal\": \"confident_answer\"}, \"MQ440\": {\"columns\": [{\"id\": \"lines including MQ440\", \"values\": [{\"type\": \"string\", \"value\": \"MQ44030151072A        K2156517HA7X45            2,00 Al       307, 46  SP    614,92 S\"}, {\"type\": \"string\", \"value\": \"MQ44030151073A        K2156517HA7X45            2,00 Al      307, 46  SP    614,92 S\"}]}]}, \"montage\": {\"type\": \"string\", \"value\": \"KD-WUNSCH RADER INKL: MONTAGE LAUT                  A1                         S\\nKD-WUNSCH WINTERREIFEN MONTIEREN                   A2                         S\", \"confidenceSignal\": \"confident_answer\"}, \"vehicle\": {\"type\": \"string\", \"value\": \"GLA 250 e\", \"confidenceSignal\": \"confident_answer\"}, \"einlagerung\": {\"type\": \"string\", \"value\": \"EINL-FREMD SOMMERRADER EINLAGERN\\nSOMMERREIFEN EINLAGERN\", \"confidenceSignal\": \"confident_answer\"}, \"invoiceDate\": {\"type\": \"string\", \"value\": \"14.11.2022\", \"confidenceSignal\": \"confident_answer\"}, \"Name of Buyer\": {\"type\": \"name\", \"value\": [\"Richard Kruse\"], \"confidenceSignal\": \"confident_answer\"}, \"dealershipInfo\": {\"type\": \"string\", \"value\": \"Egon Senger GmbH | KorbweidenstraBe 22 | 26605 Aurich\", \"confidenceSignal\": \"confident_answer\"}, \"Address of buyer\": {\"type\": \"address\", \"value\": \"KorbweidenstraBe 22, 26605 Aurich\", \"confidenceSignal\": \"incorrect_answer\"}, \"Name Of Dealership\": {\"type\": \"name\", \"value\": [\"Egon Senger GmbH\"], \"confidenceSignal\": \"confident_answer\"}, \"Address of Dealership\": {\"type\": \"address\", \"value\": \"Egon Senger GmbH | KorbweidenstraBe 22 | 26605 Aurich\", \"confidenceSignal\": \"confident_answer\"}, \"Quantity of items with MQ440 in their name\": {\"type\": \"number\", \"value\": 4, \"source\": \"4.00\", \"confidenceSignal\": \"incorrect_answer\"}}','[11]','4','[\"MQ44030151072A        K2156517HA7X45            2,00 Al       307, 46  SP    614,92 S\",\"MQ44030151073A        K2156517HA7X45            2,00 Al      307, 46  SP    614,92 S\"]',NULL,'2022-11-14 00:00:00','14.11.2022',NULL,676,'Egon Senger GmbH',NULL,'GLA 250 e','W1N2477861J382339','EINL-FREMD SOMMERRADER EINLAGERN\nSOMMERREIFEN EINLAGERN','EINL-FREMD SOMMERRADER EINLAGERN\nSOMMERREIFEN EINLAGERN','0','KD-WUNSCH RADER INKL: MONTAGE LAUT                  A1                         S\nKD-WUNSCH WINTERREIFEN MONTIEREN                   A2                         S','KD-WUNSCH RADER INKL: MONTAGE LAUT                  A1                         S\nKD-WUNSCH WINTERREIFEN MONTIEREN                   A2                         S','0');
 /*!40000 ALTER TABLE `purchasereceipts` ENABLE KEYS */;
 UNLOCK TABLES;
+
+
+CREATE TABLE `purchasereceipts_backup` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `raw` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `rekognitionResponse` json DEFAULT NULL,
+  `partsId` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `partsCount` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `partsIdentified` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `partsOverrride` tinyint DEFAULT NULL,
+  `purchaseDate` datetime DEFAULT NULL,
+  `datesIdentified` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `purchaseDateOverride` tinyint DEFAULT NULL,
+  `dealershipsId` int DEFAULT NULL,
+  `dealershipIdentified` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `dealerOverride` tinyint DEFAULT NULL,
+  `vehicleVersion` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `vehicleVIN` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `storage` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `storageIdentified` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `storageOverride` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `switch` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `switchIdentified` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `switchOverride` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `original_purchasereceipt_id` int DEFAULT NULL,
+  `cashbackType` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `excludeReason` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `original_purchasereceipt_id` (`original_purchasereceipt_id`),
+  CONSTRAINT `purchasereceipts_backup_ibfk_1` FOREIGN KEY (`original_purchasereceipt_id`) REFERENCES `purchasereceipts` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 
 --
 -- Dumping events for database 'mbdpp'
