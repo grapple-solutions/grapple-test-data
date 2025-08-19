@@ -104,6 +104,7 @@ CREATE TABLE `personalinformation` (
   `phoneVerified` varchar(100) DEFAULT NULL,
   `iban` varchar(100) DEFAULT NULL,
   `ibanVerified` varchar(100) DEFAULT NULL,
+  `ibanAccountHolder` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -114,7 +115,7 @@ CREATE TABLE `personalinformation` (
 
 LOCK TABLES `personalinformation` WRITE;
 /*!40000 ALTER TABLE `personalinformation` DISABLE KEYS */;
-INSERT INTO `personalinformation` VALUES (47,'Patrick Riegler','{\"zip\": \"6340\", \"city\": \"Baar\", \"street\": \"Oberneuhofstrasse 5\"}',NULL,NULL,'patrick.riegler@grapple-solutions.com',NULL,NULL,'CH980021421412133860R','1');
+INSERT INTO `personalinformation` VALUES (47,'Patrick Riegler','{\"zip\": \"6340\", \"city\": \"Baar\", \"street\": \"Oberneuhofstrasse 5\"}',NULL,NULL,'patrick.riegler@grapple-solutions.com',NULL,NULL,'CH980021421412133860R','1','Patrick Riegler');
 /*!40000 ALTER TABLE `personalinformation` ENABLE KEYS */;
 UNLOCK TABLES;
 
