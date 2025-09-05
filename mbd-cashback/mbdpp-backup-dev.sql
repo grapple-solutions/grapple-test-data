@@ -1707,6 +1707,7 @@ DROP TABLE IF EXISTS `personalinformation`;
 CREATE TABLE `personalinformation` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(100) DEFAULT NULL,
+  `company` varchar(100) DEFAULT NULL,
   `address` json DEFAULT NULL,
   `addressVerified` varchar(1000) DEFAULT NULL,
   `addressGeolocation` varchar(1000) DEFAULT NULL,
@@ -1726,7 +1727,7 @@ CREATE TABLE `personalinformation` (
 
 LOCK TABLES `personalinformation` WRITE;
 /*!40000 ALTER TABLE `personalinformation` DISABLE KEYS */;
-INSERT INTO `personalinformation` VALUES (1,'Patrick Riegler','{\"zip\": \"6340\", \"city\": \"Baar\", \"street\": \"Oberneuhofstrasse 5\"}',NULL,NULL,'patrick.riegler@grapple-solutions.com',NULL,NULL,'CH980021421412133860R','1','Patrick Riegler');
+INSERT INTO `personalinformation` VALUES (1,'Patrick Riegler','grapple solutions AG','{\"zip\": \"6340\", \"city\": \"Baar\", \"street\": \"Oberneuhofstrasse 5\"}',NULL,NULL,'patrick.riegler@grapple-solutions.com',NULL,NULL,'CH980021421412133860R','1','Patrick Riegler');
 /*!40000 ALTER TABLE `personalinformation` ENABLE KEYS */;
 UNLOCK TABLES;
 
