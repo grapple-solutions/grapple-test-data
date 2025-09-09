@@ -1762,7 +1762,7 @@ CREATE TABLE `purchasepaybacks` (
 
 LOCK TABLES `purchasepaybacks` WRITE;
 /*!40000 ALTER TABLE `purchasepaybacks` DISABLE KEYS */;
-INSERT INTO `purchasepaybacks` VALUES (1,'2024-07-16 09:15:08',47,NULL,NULL,1,1,'VERIFICATION','cashback-full',NULL,NULL,NULL,'{\"Wie sind Sie auf die Cashback-Aktion aufmerksam geworden?\":\"Direkte Empfehlung durch die Mitarbeiter*innen im Mercedes-Benz Autohaus\",\"Kaufen Sie Ihre Reifen und Kompletträder regelmäßig im Mercedes-Benz Autohaus?\":\"Nein, nur ab und zu\",\"Hätten Sie die Winterkompletträder auch ohne die Cashback-Aktion gekauft?\":\"keine Angabe\",\"Lassen Sie Ihre Kompletträder regelmäßig im MB-Autohaus einlagern?\":\"Nein, nur ab und zu\",\"Wie finden Sie die Cashback-Aktion?\":\"Die Aktion ist ganz OK\",\"Wie bewerten Sie den Cashback-Beantragungsprozess?\":\"Übersichtlich und einfach verständlich\"}');
+INSERT INTO `purchasepaybacks` VALUES (1,'2024-07-16 09:15:08',1,NULL,NULL,1,1,'VERIFICATION','cashback-full',NULL,NULL,NULL,'{\"Wie sind Sie auf die Cashback-Aktion aufmerksam geworden?\":\"Direkte Empfehlung durch die Mitarbeiter*innen im Mercedes-Benz Autohaus\",\"Kaufen Sie Ihre Reifen und Kompletträder regelmäßig im Mercedes-Benz Autohaus?\":\"Nein, nur ab und zu\",\"Hätten Sie die Winterkompletträder auch ohne die Cashback-Aktion gekauft?\":\"keine Angabe\",\"Lassen Sie Ihre Kompletträder regelmäßig im MB-Autohaus einlagern?\":\"Nein, nur ab und zu\",\"Wie finden Sie die Cashback-Aktion?\":\"Die Aktion ist ganz OK\",\"Wie bewerten Sie den Cashback-Beantragungsprozess?\":\"Übersichtlich und einfach verständlich\"}');
 /*!40000 ALTER TABLE `purchasepaybacks` ENABLE KEYS */;
 UNLOCK TABLES;
 
