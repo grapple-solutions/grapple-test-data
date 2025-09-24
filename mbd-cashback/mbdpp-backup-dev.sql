@@ -1841,6 +1841,31 @@ CREATE TABLE `purchasereceipts_backup` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
+--- Creating User tables
+
+CREATE TABLE `User` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `email` varchar(45) DEFAULT NULL,
+  `emailVerified` tinyint(1) DEFAULT NULL,
+  `username` varchar(45) DEFAULT NULL,
+  `verificationToken` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email_UNIQUE` (`email`),
+  UNIQUE KEY `username_UNIQUE` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=latin1;
+-- 
+
+CREATE TABLE `UserCredentials` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `password` varchar(256) DEFAULT NULL,
+  `userId` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_UserCredentials_1_idx` (`userId`),
+  CONSTRAINT `fk_UserCredentials_1` FOREIGN KEY (`userId`) REFERENCES `User` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+
+
+
 --
 -- Dumping events for database 'mbdpp'
 --
