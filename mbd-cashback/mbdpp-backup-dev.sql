@@ -1789,6 +1789,7 @@ CREATE TABLE `purchasereceipts` (
   `dealerOverride` tinyint DEFAULT NULL,
   `vehicleVersion` varchar(1000) DEFAULT NULL,
   `vehicleVIN` varchar(45) DEFAULT NULL,
+  `vehicleVINIdentified` varchar(45) DEFAULT NULL,
   `storage` varchar(1000) DEFAULT NULL,
   `storageIdentified` varchar(1000) DEFAULT NULL,
   `storageOverride` varchar(1000) DEFAULT NULL,
